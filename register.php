@@ -20,7 +20,9 @@
                     $username, $hashedPassword);
         $result = $db_connection->query($sqlQuery);
 
-        echo "mamma mia";
+        setcookie("loggedIn", "true");
+        $_SESSION["username"] = $username;
+        header("Location: home.php");
     }
 
     $db_connection->close();

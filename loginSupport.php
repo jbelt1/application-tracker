@@ -14,7 +14,7 @@
                     <title>Form Example</title>	
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
                     <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <link rel="stylesheet" href="./styles/Main.css" />
+                    <link rel="stylesheet" href="src/styles/Main.css" />
                 </head>
                         
                 <body>
@@ -56,7 +56,7 @@ EOPAGE;
         <div>
     
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
-        <script src="./js/formValidation.js"></script> 
+        <script src="src/js/formValidation.js"></script> 
 EOPAGE;
     
         echo generatePage($StartPage);
