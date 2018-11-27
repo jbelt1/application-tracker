@@ -1,0 +1,144 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#nav {
+    width: 100%;
+    background-color: darkslateblue;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+#nav p {
+    color: white;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+#avatar {
+    height: 40px;
+    border-radius: 50px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#top h1 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    flex-grow: 0;
+}
+
+#add {
+    margin-left: 450px;
+    height: 40px;
+    width: 80px;
+    background-color: darkslateblue;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+#main {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    align-items: center;
+}
+
+#applications {
+    overflow-y: scroll;
+    width: 600px;
+    flex: 1;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.application {
+    width: 98%;
+    margin: 0 auto;
+    
+    margin-top: 35px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    -webkit-box-shadow: 0px 0px 44px -9px rgba(92,76,153,1);
+    -moz-box-shadow: 0px 0px 44px -9px rgba(92,76,153,1);
+    box-shadow: 0px 0px 44px -9px rgba(92,76,153,1);
+}
+
+.application-top {
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.application-extra {
+    height: 200px;
+    display: none;
+    border-top: solid 1px darkslateblue;
+}
+
+.application-bottom {
+    border-top: solid 1px darkslateblue;
+    display: flex;
+    height:50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.application:first-of-type {
+    margin-top: 10px;
+}
+
+.application-company {
+    width: 150px;
+    margin-left: 10px;
+}
+
+.application-position {
+    flex: 1;
+    text-align: center;
+}
+
+.application-due-date {
+    width: 150px;
+    text-align: end;
+    margin-right: 10px;
+}
+
+.application-email {
+    width: 175px;
+    margin-left: 10px;
+}
+
+.application-phone {
+    flex: 1;
+    text-align: center;
+}
+
+.application-start-date {
+    width: 175px;
+    text-align: end;
+    margin-right: 10px;
+}
+
+.application-description {
+    height: 110px;
+}
