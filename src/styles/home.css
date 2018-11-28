@@ -16,6 +16,7 @@ body, html {
     height: 60px;
     display: flex;
     align-items: center;
+    position: sticky;
 }
 
 #nav p {
@@ -26,8 +27,47 @@ body, html {
 
 #avatar {
     height: 40px;
-    border-radius: 50px;
+    width: 50px;
+    border-radius: 80px;
     margin-left: 10px;
+    cursor: pointer;
+}
+
+#home-link {
+    width: 50px;
+    margin-left: 10px;
+    background-color: darkslateblue;
+    color: white;
+    font-size: 1.1em;
+    border: none;
+    cursor: pointer;
+}
+
+#profile-edit {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 5px;
+    background-color: darkslateblue;
+    height: 100px;
+    width: 110px;
+}
+
+#profile-edit-container {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.edit-submit {
+    width: 100px;
+    height: 30px;
+    background-color: darkslateblue;
+    color: white;
+    font-size: .8em;
     cursor: pointer;
 }
 
@@ -59,6 +99,10 @@ body, html {
     flex:1;
     flex-direction: column;
     align-items: center;
+}
+
+#empty {
+    text-align: center;
 }
 
 #applications {
