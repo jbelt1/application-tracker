@@ -73,7 +73,6 @@
 </div>
 EOPAGE;
     } 
-    $result->close();
     $db_connection->close();
     echo createEdit($body);
 

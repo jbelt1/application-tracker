@@ -108,8 +108,7 @@ EOT;
 </div>
 EOPAGE;
     } 
-    $result1->close();
-    $result2->close();
+
     $db_connection->close();
     echo createHome($body);
 
