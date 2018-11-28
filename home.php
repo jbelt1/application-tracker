@@ -5,6 +5,8 @@
     $body = "<h1 id=\"error\">You need to login or regist first!</h1>";
     $applications = "";
 
+    $avatar = "<img src=\"default-avatar.png\" id=\"avatar\" />";
+
     if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
         
@@ -12,20 +14,24 @@
 	    $user = "root";
 	    $password = "";
 	    $database = "application_tracker";
-	    $table = "applications";
+        $applications_table = "applications";
+        $users_table = "users";
+
 	    $db_connection = new mysqli($host, $user, $password, $database);
 	
-        $sqlQuery = sprintf("select * from $table where username = '%s'", $username);
-        $result = $db_connection->query($sqlQuery);
+        $sqlQuery1 = sprintf("select * from $applications_table where username = '%s'", $username);
+        $result1 = $db_connection->query($sqlQuery1);
 
-        if ($result) {
-            $numRows = $result->num_rows;
-            if ($numRows==0) {
-                $username .= " no results!";
+        $sqlQuery2 = sprintf("select (avatar) from $users_table where username = '%s'", $username);
+        $result2 = $db_connection->query($sqlQuery2);
+
+        if ($result1) {
+            $numRows1 = $result1->num_rows;
+            if ($numRows1==0) {
+                $applications = "<h2 id=\"empty\">No applications yet!</h2>";
             }
             else {
-                $applications = "";
-                while ($recordArray = $result->fetch_array(MYSQLI_ASSOC)) {
+                while ($recordArray = $result1->fetch_array(MYSQLI_ASSOC)) {
                     $company = $recordArray["company"];
                     $description = $recordArray["description"];
                     $id = $recordArray["id"];
@@ -57,15 +63,36 @@ EOT;
             }
         }
 
-        else {
-            $username .= " failed!";
+        if ($result2) {
+            $numRows2 = $result2->num_rows;
+            $recordArray = $result2->fetch_array(MYSQLI_ASSOC);
+            
+            $avatar_img = $recordArray['avatar'];
+            if ($avatar_img) {
+                $avatar = "<img src=\"getAvatar.php?username=$username\" id=\"avatar\" />";
+            }
+            else {
+                $avatar = "<img src=\"default-avatar.png\" id=\"avatar\" />";
+            }
         }
 
         $body = <<<EOPAGE
 <div id="home">
     <div id="nav">
-        <img src="default-avatar.png" id="avatar">
-        <p>$username</p>
+        $avatar
+        <form action="home.php" method="get">
+            <input type="submit" value="$username" name="home" id="home-link"/>
+        </form>
+    </div>
+    <div id="profile-edit">
+        <div id="profile-edit-container">
+            <form action="profile-edit.php" method="get">
+                <input type="submit" class="edit-submit" value="Edit Profile" name="edit-profile" id="edit-profile"/>
+            </form>
+            <form action="logout.php" method="post">
+                <input type="submit" class="edit-submit" value="Logout" name="logout" id="logout"/>
+            </form>
+        </div>
     </div>
     <div id="main">
         <div id="top">
@@ -81,6 +108,9 @@ EOT;
 </div>
 EOPAGE;
     } 
+    $result1->close();
+    $result2->close();
+    $db_connection->close();
     echo createHome($body);
 
     function connectToDB($host, $user, $password, $database) {
