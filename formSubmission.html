@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head> 
+        <meta charset="utf-8"/> 
+        <title>Form Example</title>	
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="src/styles/Main.css" />
+    </head>
+            
+    <body>
+        <div id = "application-wrapper">
+            <div id = "application-form">
+                <form action="applicationProcessing.php" method="post">
+                    <strong>Company</strong><input type="text" name="company" required> <br>
+                    <strong>Position</strong><input type="text" name="position" required> <br>
+                    <strong>Contact Number</strong>
+                    <input type="text" placeholder="(443)123-4567" name="phone" pattern="\([0-9]{3}\)[0-9]{3}[-]{1}[0-9]{4}" required> <br>
+                    <strong>Contact Email</strong><input type="email" name="email" required> <br>
+                    <strong>Start Date</strong><input type="date" name="startDate"> <br>
+                    <strong>End Date</strong><input type="date" name="endDate"> <br>
+                    <strong>Description</strong><textarea name="description"></textarea> <br>
+                    <input type="submit" class="button">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

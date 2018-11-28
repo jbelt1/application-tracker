@@ -2,8 +2,8 @@
     session_start();
  
     require_once('home-helper.php');
-    $_SESSION['username'] = "jbelt1";
     $body = "<h1 id=\"error\">You need to login or regist first!</h1>";
+    $applications = "";
 
     if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
@@ -70,7 +70,9 @@ EOT;
     <div id="main">
         <div id="top">
             <h1 id="main-header">Applications</h1>
-            <button id="add">New</button>
+            <form action="formSubmission.html">
+                <button id="add">New</button>
+            </form>
         </div>
         <div id="applications">
             $applications

@@ -1,7 +1,7 @@
 <?php
     $host = "localhost";
-    $user = "dbuser";
-    $password = "goodbyeWorld";
+    $user = "root";
+    $password = "";
     $database = "application_tracker";
     $table = "users";
 

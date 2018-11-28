@@ -2,6 +2,8 @@
     require_once("loginSupport.php"); 
     $db_connection = new mysqli($host, $user, $password, $database);
 
+    session_start();
+
     $username = $_POST["registerUsername"];
     $password = $_POST["registerPassword"];
     $verifyPassword = $_POST["verifyPassword"];
